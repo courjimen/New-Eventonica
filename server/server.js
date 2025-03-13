@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const pool = require('./db');
+const cors = require('cors');
 const port = 3000;
 
+app.use(cors());
 //grabs data for events
 
 app.get('/events', async (req, res) => {
@@ -13,6 +15,8 @@ app.get('/events', async (req, res) => {
         console.error('You have an error: ', err);
     }
 })
+
+const location = 
 
 
 app.listen(port, () => {
