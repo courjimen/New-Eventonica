@@ -2,24 +2,37 @@ import { useState, useEffect } from "react"
 
 function Events() {
     const [events, setEvents] = useState([])
+  const [err, setErr] = useState(null)
 
-    useEffect(() => {
-        fetch('https://localhost:3000/events')
-        .then(res => res.json())
-        .then(data => setEvents(data))
-        .catch(error => console.error('Error fetching events: ', error))
-    }, [])
+  const handleClick = () => {
+    fetch('http://localhost:3000/events')
+      .then((res) => res.json())
+      .then((data) => setEvents(data))
+      .catch((error) => {
+        console.error('Error fetching events: ', error)
+        setErr('Error fetching events')
+      })
+  }
 
   return (
     <>
     <h2>Events</h2>
-    <ul>
+      <ul>
         {events.map(event => (
-            <li key={event.id}>
-                Location: {event.location}, Date: {event.date}, Time: {event.time}
-            </li>
+          <li key={event.id}>
+            Location: {event.location}, 
+            Date: {new Date(event.date).toLocaleDateString()}, 
+            Time: {new Date(`1970-01-01T${event.time}`).toLocaleTimeString('en-US', {
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true
+            })
+          }
+          </li>
         ))}
-    </ul>
+      </ul>
+      <button onClick={handleClick}>Click Me</button>
+        {err && <p>{err}</p>}
     </>
   )
 }
