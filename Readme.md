@@ -13,8 +13,10 @@ This project is a fullstack app that displays events in different cities.
 
 ❗️ Prior to jumping into my project make you install: 
 
+- Postgresql
 - express
 - vite/react
+- Jest
 
 The code editor I used for this project was VS Code. 
 - Follow these steps to [install Express](https://expressjs.com/en/starter/installing.html) on your VS Code terminal (they also provide documentation to install node.js)
@@ -25,7 +27,7 @@ The code editor I used for this project was VS Code.
 Clone my project below from your terminal
 
 ```bash
-git clone 
+git clone https://github.com/courjimen/New-Eventonica.git
 ```
 
 Open in VS Code
@@ -35,7 +37,7 @@ code .
 Navigate to the server folder and open the server.js file then run this command:
 
 ```bash
-node server.js
+npm run server
 ```
 
 Now navigate to the client folder and open the app.jsx file, open a _separate terminal_ you need to have <ins>both <ins> running at the same time ❗️
@@ -46,6 +48,7 @@ Run vite in your second terminal for the app.jsx file:
 npm run dev
 ```
 Follow the provided link to localhost:5173 which should display: 
+
 
 ## Demo
 Now you should be able to:

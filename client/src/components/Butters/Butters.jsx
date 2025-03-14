@@ -15,7 +15,7 @@ function Butters() {
   }
 
   return (
-    <>
+    <div>
     <h2>Whipped Butters</h2>
       <ul data-testid="list">
         {butters.map(butter => (
@@ -28,7 +28,7 @@ function Butters() {
       </ul>
       <button data-testid="button" onClick={handleClick}>See Whipped Butters</button>
         {err && <p>{err}</p>}
-    </>
+    </div>
   )
 }
 

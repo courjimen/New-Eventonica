@@ -54,49 +54,65 @@ function Form() {
     }
 
     return (
-        <>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <h1>Add a Whipped Butter</h1>
-                    <div>
-                        <label for='scents'>Fragrance</label><br />
-                        <input
-                            placeholder='Insert Scent'
-                            id='scents'
-                            name='scents'
-                            value={state.scents}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div>
-                        <label for='color'>What Color?</label> <br />
-                        <select
-                            id='color'
-                            name='color'
-                            value={state.color}
-                            onChange={handleChange}>
-                            <option value='White'>White</option>
-                            <option value='Yellow'>Yellow</option>
-                            <option value='Ombre'>Ombre</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for='quantity'>Quantity</label><br />
-                        <input
-                            placeholder='Insert Number'
-                            id='quantity'
-                            name='quantity'
-                            type='number'
-                            value={state.quantity}
-                            onChange={handleChange}
-                        /> <br />
-                        <button type='submit'>Add Butter</button>
-
-                    </div>
-                </form>
-            </div>
-        </>
-    )
-}
-
+        <div className="flex justify-center items-center">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-orange-100 p-8 rounded-lg shadow-md w-full max-w-md"
+        >
+          <h1 className="text-2xl font-bold mb-6 text-center">Add a Whipped Butter</h1>
+          <div className="mb-4">
+            <label htmlFor="scents" className="block text-sm font-medium text-gray-700">
+              Fragrance
+            </label>
+            <input
+              placeholder="Insert Scent"
+              id="scents"
+              name="scents"
+              value={state.scents}
+              onChange={handleChange}
+              className="mt-1 block w-full border border-orange-700 rounded-md shadow-sm focus:ring focus:ring-orange-200 focus:border-orange-500 p-2 bg-orange-300"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="color" className="block text-sm font-medium text-gray-700">
+              What Color?
+            </label>
+            <select
+              id="color"
+              name="color"
+              value={state.color}
+              onChange={handleChange}
+              className="mt-1 block w-full border border-orange-700 rounded-md shadow-sm focus:ring focus:ring-orange-200 focus:border-orange-500 p-2 bg-orange-300"
+            >
+              <option value="White">White</option>
+              <option value="Yellow">Yellow</option>
+              <option value="Ombre">Ombre</option>
+            </select>
+          </div>
+          <div className="mb-6">
+            <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">
+              Quantity
+            </label>
+            <input
+              placeholder="Insert Number"
+              id="quantity"
+              name="quantity"
+              type="number"
+              value={state.quantity}
+              onChange={handleChange}
+              className="mt-1 block w-full border border-orange-700 rounded-md shadow-sm focus:ring focus:ring-orange-200 focus:border-orange-500 p-2 bg-orange-300"
+            />
+          </div>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded border border-black focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500"
+            >
+              Add Butter
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  }
 export default Form
