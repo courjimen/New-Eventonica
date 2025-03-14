@@ -13,6 +13,7 @@ app.get('/butters', async (req, res) => {
     try {
         let { scents } = req.query;
         let result;
+        //search functionality
         if (scents) {
             result = await pool.query('SELECT * FROM butters WHERE scents ILIKE $1', [`${scents}`]);
         } else {
@@ -51,20 +52,6 @@ app.delete('/butters', async (req, res) => {
         res.status("Unable to place your butter order").send(err);
     }
   });
-
-// //search functionality
-// app.get('/butters/search', async (req, res) => {
-//     const scents = req.query.scents
-
-//     try{
-//       const findButter = await pool.query(`SELECT * FROM butters WHERE scents = ${findButter}`, [scents]);
-//       res.json(findButter.rows);
-
-//     } catch(err) {
-//       console.error(err);
-//       res.status("Unable to find your butter").send(err);
-//     }
-//   });
 
 app.listen(port, () => {
     console.log(`Server started on 3000`);
