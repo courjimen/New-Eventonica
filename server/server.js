@@ -21,15 +21,15 @@ app.get('/butters', async (req, res) => {
 
 //allows user to edit events
 app.post('/butters', async (req, res) => {
-    const {scent, color, quantity} = req.body;
+    const {scents, color, quantity} = req.body;
   
     try{
-      const createEvent = await pool.query('INSERT INTO butters (scent, color, quantity) VALUES ($1, $2, $3) RETURNING *', [scent, color, quantity]);
+      const createButter = await pool.query('INSERT INTO butters (scents, color, quantity) VALUES ($1, $2, $3) RETURNING *', [scents, color, quantity]);
       res.json(createButter.rows);
 
     } catch(err) {
       console.error(err);
-      res.status("Unable to create your event due").send(err);
+      res.status("Unable to place your butter order").send(err);
     }
   });
 
