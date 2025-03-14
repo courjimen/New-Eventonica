@@ -31,7 +31,7 @@ function Events() {
           </li>
         ))}
       </ul>
-      <button onClick={handleClick}>Click Me</button>
+      <button onClick={handleClick}>Click for Events</button>
         {err && <p>{err}</p>}
     </>
   )
