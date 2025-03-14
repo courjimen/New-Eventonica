@@ -4,13 +4,14 @@ const pool = require('./db');
 const cors = require('cors');
 const port = 3000;
 
+
 app.use(cors());
 app.use(express.json());
 //grabs data for events
 
-app.get('/events', async (req, res) => {
+app.get('/butters', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM events');
+        const result = await pool.query('SELECT * FROM butters');
         res.json(result.rows);
 
     } catch (err) {
@@ -19,12 +20,12 @@ app.get('/events', async (req, res) => {
 })
 
 //allows user to edit events
-app.post('/events', async (req, res) => {
-    const {location, date, time} = req.body;
+app.post('/butters', async (req, res) => {
+    const {scent, color, quantity} = req.body;
   
     try{
-      const createEvent = await pool.query('INSERT INTO events (location, date, time) VALUES ($1, $2, $3) RETURNING *', [location, date, time]);
-      res.json(createEvent.rows);
+      const createEvent = await pool.query('INSERT INTO butters (scent, color, quantity) VALUES ($1, $2, $3) RETURNING *', [scent, color, quantity]);
+      res.json(createButter.rows);
 
     } catch(err) {
       console.error(err);
