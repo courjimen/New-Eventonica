@@ -7,8 +7,8 @@ const port = 3000;
 
 app.use(cors());
 app.use(express.json());
-//grabs data for events
 
+//grabs and display butters
 app.get('/butters', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM butters');
@@ -19,7 +19,7 @@ app.get('/butters', async (req, res) => {
     }
 })
 
-//allows user to edit events
+//allows user to add butter
 app.post('/butters', async (req, res) => {
     const {scents, color, quantity} = req.body;
   
@@ -33,6 +33,7 @@ app.post('/butters', async (req, res) => {
     }
   });
 
+  //let user delete butters
 
 app.listen(port, () => {
     console.log(`Server started on 3000`);
