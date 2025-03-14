@@ -17,7 +17,7 @@ function Butters() {
   return (
     <>
     <h2>Whipped Butters</h2>
-      <ul>
+      <ul data-testid="list">
         {butters.map(butter => (
           <li key={butter.id}>
             Scents: {butter.scents}, 
@@ -26,7 +26,7 @@ function Butters() {
           </li>
         ))}
       </ul>
-      <button onClick={handleClick}>See Whipped Butters</button>
+      <button data-testid="button" onClick={handleClick}>See Whipped Butters</button>
         {err && <p>{err}</p>}
     </>
   )
