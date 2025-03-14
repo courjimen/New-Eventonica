@@ -34,6 +34,18 @@ app.post('/butters', async (req, res) => {
   });
 
   //let user delete butters
+  app.delete('/butters', async (req, res) => {
+    const scents = req.body.scents
+  
+    try{
+      const deleteButter = await pool.query('DELETE FROM butters WHERE scents = $1', [scents]);
+      res.json(deleteButter.rows);
+
+    } catch(err) {
+      console.error(err);
+      res.status("Unable to delete your butter").send(err);
+    }
+  });
 
 app.listen(port, () => {
     console.log(`Server started on 3000`);
