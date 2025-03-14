@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+
 function Search() {
     const [findButter, setFindButter] = useState('');
     const [foundButter, setFoundButter] = useState([]);
@@ -28,24 +29,24 @@ function Search() {
     }
 
     return (
-
-        <div>
-            <label> Find a Scent: </label>
-            <input
+        <div className="flex flex-col">
+        <div className="flex items-center space-x-2">
+            <label > Find a Scent: </label>
+            <input className="border border-black rounded px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
                 placeholder='Insert scent to find'
                 type='text'
                 value={findButter}
                 onChange={(e) => setFindButter(e.target.value)}
             />
-            <button onClick={searchButter}>Search Scent</button>
-
+            <button className="border border-black rounded px-4 py-2 bg-white hover:bg-gray-100 focus:outline-none focus:ring focus:border-blue-300" onClick={searchButter}>Search Scent</button>
+            </div>
             {foundButter.length > 0 && (
-                <div>
-                    <h3>Found Butters: </h3>
+                <div className="flex items-center space-x-2">
+                    <h3 className="text-med font-semibold">We found </h3>
                     <ul>
                         {foundButter.map((butter) => (
                             <li key={butter.id}>
-                                {butter.scents} - {butter.color} - {butter.quantity}
+                                 {butter.quantity} of {butter.scents}
                             </li>
                         ))}
                     </ul>
