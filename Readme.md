@@ -53,6 +53,6 @@ Follow the provided link to localhost:5173 which should display:
 ## Demo
 Now you should be able to see and interact with the homepage:
 
-![](./Images/BUTTER.png)
+![](./client/Images/BUTTER.png)
 
 That's all folks 🎉 Thank you for checking out my work 🙌🏾
